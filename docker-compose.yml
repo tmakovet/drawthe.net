@@ -1,0 +1,17 @@
+version: "3"
+services:
+  unity-exporter:
+    container_name: drawthenet
+    image: local/drawthenet:latest
+    environment:
+      - TZ=Asia/Tashkent
+#    volumes:
+#      - './cfg/unity_metrics.json:/unity_metrics.json'
+#      - './cfg/config.json:/config.json'
+    ports:
+      - '8080:80'
+    restart: unless-stopped
+    logging:
+        driver: "json-file"
+        options:
+            max-size: 10m
